@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 --><!-- 
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" /> -->
+        <meta name="viewport" content="width=device-width, user-scalable=no" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+        <script src="js/jquery.number.js"type="text/javascript"></script>
+        <script type="text/javascript">
+        $(document).ready(function(e) {
+             var total = 0.00;
+             var hundred1;
+             var fifty1;
+             var twintey1;
+             var ten1;
+             var five1;
+             var one1;
+             var quarter1;
+             var dime1;
+             var nickel1;
+             var penny1;
+
+             $('#total').hide();
+             $('#clear').hide();
+        function final(){
+            
+             hundred1 = $('#hundred').val();
+             fifty1 = $('#fifty').val();
+             twenty1 = $('#twenty').val();
+             ten1 = $('#ten').val();
+             five1 = $('#five').val(); 
+             one1 = $('#one').val();
+             quarter1 = $('#quarter').val();
+             dime1 = $('#dime').val();
+             nickel1 = $('#nickel').val();
+             penny1 = $('#penny').val();             
+             
+             total = 0.00 + (hundred1*100) + (fifty1*50) + (twenty1*20) + (ten1*10) + (five1*5) + (one1*1) + (quarter1*0.25) + (dime1*0.10) + (nickel1 *0.05) + (penny1 * 0.01) ;
+
+             $('#total').html("Total $" + $.number(total,2) );
+             if(total > 0)
+                $('#clear').show();
+            } 
+            $('input').change(function(e){
+                    
+                final();
+                $('#total').animate({height:'show'}, 100);
+            });
+            
+            $('.coins').hide();
+            var coins = 0;
+            var clear = 0;
+            $('#clear').click(function(event) {
+                $('#hundred').val('');
+                $('#fifty').val('');
+                $('#twenty').val('');
+                $('#ten').val('');
+                $('#five').val('');
+                $('#one').val('');
+                $('#quarter').val('');
+                $('#dime').val('');
+                $('#nickel').val('');
+                $('#penny').val('');
+                final();
+                $('#total').hide();
+                $('#clear').hide();
+            });
+            $('#secondClear').blur(function(event) {
+                $('#quarter').val('');
+                $('#dime').val('');
+                $('#nickel').val('');
+                $('#penny').val('');
+            });
+            $('#addC').click(function(event) {
+                if(coins == 0){
+                    $('.coins').animate({height: 'show'}, 'slow');
+                    $('#addC').html("HIDE COINS");
+                    final();
+                    coins = 1;
+                }else{
+                    $('.coins').animate({height: 'hide'}, 'slow');
+                    $('#addC').html("SHOW COINS");
+                    $('#quarter').val('');
+                    $('#dime').val('');
+                    $('#nickel').val('');
+                    $('#penny').val('');
+                   final();
+
+                    coins = 0;
+
+                }
+            });
+        });
+
+
+        </script>        
+        <title>Dollar Calculator</title>
+    </head>
+    <body>
+
+        <header>
+            Dollar Calculator
+        </header>
+        <div class="bills">
+            <div class="hundred">
+                <div class="amount">$100</div><div class="dollar"><input id="hundred" pattern="[0-9]*"  name="hundred" type="number" min="0" size="4" value="" /></div>
+            </div>
+        </div>
+        <div class="bills">
+            <div class="fifty">
+               <div class="amount">$50</div><div class="dollar"><input id="fifty" name="fifty" type="number" min="0" size="4" value="" /></div>
+            </div>
+        </div>
+        <div class="bills">
+            <div class="twenty">
+                <div class="amount">$20</div><div class="dollar"><input id="twenty" name="twenty" type="number" min="0" size="4" value="" /></div>
+            </div>
+        </div> 
+        <div class="bills">
+            <div class="ten">
+                <div class="amount">$10</div><div class="dollar"><input id="ten" name="ten" type="number" min="0" size="4" value="" /></div>
+            </div>
+        </div> 
+        <div class="bills">
+            <div class="five">
+                <div class="amount">$5</div><div class="dollar"><input id="five" name="five" type="number" min="0" size="4" value="" /></div></div>
+        </div>         
+        <div class="bills">
+            <div class="one">
+                <div class="amount">$1</div><div class="dollar"><input id="one" name="one" type="number" min="0" size="4" value="" /></div>
+            </div>
+        </div>   
+        </div><br/>
+        <hr>   
+        <div class="coins">
+        <div class="bills">
+            <div class="quarter">
+                <div class="amount">25&#162;</div><div class="dollar"><input id="quarter" name="one" type="number" min="0" size="4" value="" /></div>
+            </div>
+        </div>  
+        <div class="bills">
+            <div class="dime">
+                <div class="amount">10&#162;</div><div class="dollar"><input id="dime" name="one" type="number" min="0" size="4" value="" /></div>
+            </div>
+        </div>  
+        <div class="bills">
+            <div class="nickel">
+                <div class="amount">5&#162;</div><div class="dollar"><input id="nickel" name="one" type="number" min="0" size="4" value="" /></div>
+            </div>
+        </div>  
+        <div class="bills">
+            <div class="penny">
+                <div class="amount">1&#162;</div><div class="dollar"><input id="penny" name="one" type="number" min="0" size="4" value="" /></div>
+            </div>
+        </div>             
+        <br/>             
+        <hr>
+        </div>
+        <p id="addC">SHOW COINS</p>
+        <div id="total"></div>
+        <div align="center">
+        <input id="clear" value="CLEAR" type="button" /></div>
+        <br/>
+        <p align="center">Designed and Developed by ScriptingNinja.net</p>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+    </body>
+</html>

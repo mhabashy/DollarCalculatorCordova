@@ -1,0 +1,123 @@
+@font-face {
+    font-family: 'dollar_billregular';
+    src: url('../font/dollar_bill-webfont.eot');
+    src: url('../font/dollar_bill-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/dollar_bill-webfont.woff2') format('woff2'),
+         url('../font/dollar_bill-webfont.woff') format('woff'),
+         url('../font/dollar_bill-webfont.ttf') format('truetype'),
+         url('../font/dollar_bill-webfont.svg#dollar_billregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+background: rgba(160,185,141,1);
+background: -moz-linear-gradient(left, rgba(160,185,141,1) 0%, rgba(49,94,13,1) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(160,185,141,1)), color-stop(100%, rgba(49,94,13,1)));
+background: -webkit-linear-gradient(left, rgba(160,185,141,1) 0%, rgba(49,94,13,1) 100%);
+background: -o-linear-gradient(left, rgba(160,185,141,1) 0%, rgba(49,94,13,1) 100%);
+background: -ms-linear-gradient(left, rgba(160,185,141,1) 0%, rgba(49,94,13,1) 100%);
+background: linear-gradient(to right, rgba(160,185,141,1) 0%, rgba(49,94,13,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a0b98d', endColorstr='#315e0d', GradientType=1 );
+    background-size: 100%;
+    width: 100%;
+
+/*    overflow-x:hidden;
+*/
+}
+body{
+    width: 100%;
+}
+header{
+    font-size: x-large;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'dollar_billregular';
+    padding: 1em;
+}
+.hundred, .fifty, .twenty, .ten, .five, .one, .quarter, .dime, .nickel, .penny{
+    font-family: 'dollar_billregular';
+    font-size: large;
+    padding: 1em;
+    display: table-row;    
+}
+#total{
+    text-align: center;
+    font-family: 'dollar_billregular';
+    padding: 1em; 
+    font-size: xx-large;
+}
+.bills{
+    width: 100%;  
+    display: table;
+    text-align: center;
+}
+.amount{
+    width: 40%;
+    text-align: center;
+    display: table-cell;
+    vertical-align: center;
+    padding: .5em;
+}
+.dollar{
+    width: 40%;
+    display: table-cell;
+}
+input[type="number"]{
+    padding: .5em;
+    width: 40%;
+}
+#addC{
+    cursor: pointer;
+    text-align: center;
+    color: red;
+    font-weight: bold;
+    font-size: large;
+    width: 50%;
+    margin: 0 auto 0 auto;
+}
+#clear {
+    -moz-box-shadow: 0px 1px 0px 0px #1c1b18;
+    -webkit-box-shadow: 0px 1px 0px 0px #1c1b18;
+    box-shadow: 0px 1px 0px 0px #1c1b18;
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #eae0c2), color-stop(1, #ccc2a6));
+    background:-moz-linear-gradient(top, #eae0c2 5%, #ccc2a6 100%);
+    background:-webkit-linear-gradient(top, #eae0c2 5%, #ccc2a6 100%);
+    background:-o-linear-gradient(top, #eae0c2 5%, #ccc2a6 100%);
+    background:-ms-linear-gradient(top, #eae0c2 5%, #ccc2a6 100%);
+    background:linear-gradient(to bottom, #eae0c2 5%, #ccc2a6 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#eae0c2', endColorstr='#ccc2a6',GradientType=0);
+    background-color:#eae0c2;
+    -moz-border-radius:15px;
+    -webkit-border-radius:15px;
+    border-radius:15px;
+    border:2px solid #333029;
+    display:inline-block;
+    cursor:pointer;
+    color:#505739;
+    font-family:arial;
+    font-size:14px;
+    font-weight:bold;
+    padding:12px 16px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #ffffff;
+}
+#clear:hover {
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ccc2a6), color-stop(1, #eae0c2));
+    background:-moz-linear-gradient(top, #ccc2a6 5%, #eae0c2 100%);
+    background:-webkit-linear-gradient(top, #ccc2a6 5%, #eae0c2 100%);
+    background:-o-linear-gradient(top, #ccc2a6 5%, #eae0c2 100%);
+    background:-ms-linear-gradient(top, #ccc2a6 5%, #eae0c2 100%);
+    background:linear-gradient(to bottom, #ccc2a6 5%, #eae0c2 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ccc2a6', endColorstr='#eae0c2',GradientType=0);
+    background-color:#ccc2a6;
+}
+#clear:active {
+    position:relative;
+    top:1px;
+}

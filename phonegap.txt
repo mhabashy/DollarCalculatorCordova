@@ -1,0 +1,10 @@
+
+Make a key.
+
+keytool -genkey -v -keystore DollarCalculator.keystore -alias DollarCalculator -keyalg RSA -keysize 2048 -validity 10000
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore DollarCalculator.keystore CordovaApp-release-unsigned.apk DollarCalculator
+zipalign -v 4 DollarCalculator.apk DollarCalculator-released.apk
+zipalign [-f] [-v] <alignment> DollarCalculator.apk DollarCalculator-released.apk
+zipalign -v 4 CordovaApp-release-unsigned.apk DollarCalculator-released.apk
+
+ cd /Users/habashy/Desktop/Ninja/adt-bundle-windows-x86_64-20140702/sdk/build-tools/android-4.4W

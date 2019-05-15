@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.dollarcalculator.www" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>DollarCalculator</name>
+    <description>
+	I thought of this app when I was helping a friend close a grocery store. It was a lot easier to count the number of bills enter them in the app and then you get the total. It’s really useful and counting a large amount of money. We also added coins to be calculated.  Complete time saver for cashier or managers adding up the shift totals.
+    </description>
+    <author email="admin@scriptingninja.net" href="http://scriptingninja.net">
+        Michael Habashy ScriptingNinja
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+</widget>

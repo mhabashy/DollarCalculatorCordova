@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>custom_rules.xml</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: rgb(0,0,0); font-weight: normal; font-style: normal; }
+.s0 { color: rgb(232,191,106); }
+.s1 { color: rgb(186,186,186); }
+.s2 { color: rgb(165,194,97); }
+.s3 { color: rgb(169,183,198); }
+.s4 { color: rgb(128,128,128); font-style: italic; }
+</style>
+</head>
+<BODY BGCOLOR="#2b2b2b">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#C0C0C0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+custom_rules.xml</FONT>
+</center></TD></TR></TABLE>
+<pre>
+
+<span class="s0">&lt;?</span><span class="s1">xml version=</span><span class="s2">&quot;1.0&quot; </span><span class="s1">encoding=</span><span class="s2">&quot;UTF-8&quot;</span><span class="s0">?&gt;</span><span class="s3"> 
+</span><span class="s0">&lt;project&gt;</span><span class="s3"> 
+    </span><span class="s0">&lt;target </span><span class="s1">name=</span><span class="s2">&quot;-pre-compile&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+        </span><span class="s4">&lt;!-- Fix library references due to bug in build.xml: See: https://groups.google.com/forum/#!topic/android-developers/0ivH-YqCjzg --&gt;</span><span class="s3"> 
+        </span><span class="s0">&lt;pathconvert </span><span class="s1">property=</span><span class="s2">&quot;fixedJarsPath&quot; </span><span class="s1">refid=</span><span class="s2">&quot;project.all.jars.path&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+          </span><span class="s0">&lt;filtermapper&gt;</span><span class="s3"> 
+            </span><span class="s0">&lt;replacestring </span><span class="s1">from=</span><span class="s2">&quot;/bin/&quot; </span><span class="s1">to=</span><span class="s2">&quot;/ant-build/&quot;</span><span class="s0">/&gt;</span><span class="s3"> 
+            </span><span class="s0">&lt;replacestring </span><span class="s1">from=</span><span class="s2">&quot;\bin\&quot; </span><span class="s1">to=</span><span class="s2">&quot;\ant-build\&quot;</span><span class="s0">/&gt;</span><span class="s3"> 
+          </span><span class="s0">&lt;/filtermapper&gt;</span><span class="s3"> 
+        </span><span class="s0">&lt;/pathconvert&gt;</span><span class="s3"> 
+        </span><span class="s0">&lt;path </span><span class="s1">id=</span><span class="s2">&quot;project.all.jars.path&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+          </span><span class="s0">&lt;pathelement </span><span class="s1">path=</span><span class="s2">&quot;${fixedJarsPath}&quot;</span><span class="s0">/&gt;</span><span class="s3"> 
+        </span><span class="s0">&lt;/path&gt;</span><span class="s3"> 
+        </span><span class="s0">&lt;echo </span><span class="s1">message=</span><span class="s2">&quot;Set jars path to: ${toString:project.all.jars.path}&quot;</span><span class="s0">/&gt;</span><span class="s3"> 
+    </span><span class="s0">&lt;/target&gt;</span><span class="s3"> 
+    </span><span class="s4">&lt;!-- Rename AndroidManifest.xml so that Eclipse's import wizard doesn't detect ant-build as a project --&gt;</span><span class="s3"> 
+    </span><span class="s0">&lt;target </span><span class="s1">name=</span><span class="s2">&quot;-post-build&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+        </span><span class="s0">&lt;move </span><span class="s1">file=</span><span class="s2">&quot;ant-build/AndroidManifest.xml&quot; </span><span class="s1">tofile=</span><span class="s2">&quot;ant-build/AndroidManifest.cordova.xml&quot; </span><span class="s1">failonerror=</span><span class="s2">&quot;false&quot; </span><span class="s1">overwrite=</span><span class="s2">&quot;true&quot; </span><span class="s0">/&gt;</span><span class="s3"> 
+        </span><span class="s0">&lt;move </span><span class="s1">file=</span><span class="s2">&quot;CordovaLib/ant-build/AndroidManifest.xml&quot; </span><span class="s1">tofile=</span><span class="s2">&quot;CordovaLib/ant-build/AndroidManifest.cordova.xml&quot; </span><span class="s1">failonerror=</span><span class="s2">&quot;false&quot; </span><span class="s1">overwrite=</span><span class="s2">&quot;true&quot; </span><span class="s0">/&gt;</span><span class="s3"> 
+    </span><span class="s0">&lt;/target&gt;</span><span class="s3"> 
+</span><span class="s0">&lt;/project&gt;</span><span class="s3"> 
+ 
+</span></pre>
+</body>
+</html>
